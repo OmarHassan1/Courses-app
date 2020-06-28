@@ -1,7 +1,13 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 
-const CourseList = () => {
-  return <div></div>;
-};
+class CourseList extends Component {
+  render() {
+    return (
+      <Fragment>
+        <li>{this.props.detils.name}</li>
+      </Fragment>
+    );
+  }
+}
 
 export default CourseList;
