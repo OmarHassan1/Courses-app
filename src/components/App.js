@@ -5,9 +5,19 @@ import "../style/App.css";
 class App extends Component {
   state = {
     courses: [{ name: "HTML" }, { name: "JS" }, { name: "React" }],
+    current: "",
   };
+  updateCourse = (e) => {
+    console.log(e.target.value);
+  };
+
+  addCourse = (e) => {
+    console.log("course Add");
+  };
+
   render() {
     const { courses } = this.state;
+
     const courseList = courses.map((course, index) => {
       return <CourseList detils={course} key={index} />;
     });
@@ -15,7 +25,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Add Courese</h1>
-        <CourseForm />
+        <CourseForm
+          updateCourse={this.updateCourse}
+          addCourse={this.addCourse}
+        />
         <ul>{courseList}</ul>
       </div>
     );
