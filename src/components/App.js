@@ -8,16 +8,21 @@ class App extends Component {
     current: "",
   };
   updateCourse = (e) => {
-    console.log(e.target.value);
+    this.setState({
+      current: e.target.value,
+    });
   };
 
   addCourse = (e) => {
-    console.log("course Add");
+    e.preventDefault();
+    let current = this.state.current;
+    let courses = this.state.courses;
+    courses.push({ name: current });
+    this.setState({ courses, current: "" });
   };
 
   render() {
     const { courses } = this.state;
-
     const courseList = courses.map((course, index) => {
       return <CourseList detils={course} key={index} />;
     });
@@ -26,6 +31,7 @@ class App extends Component {
       <div className="App">
         <h1>Add Courese</h1>
         <CourseForm
+          current={this.state.current}
           updateCourse={this.updateCourse}
           addCourse={this.addCourse}
         />
