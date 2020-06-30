@@ -7,12 +7,14 @@ class App extends Component {
     courses: [{ name: "HTML" }, { name: "JS" }, { name: "React" }],
     current: "",
   };
+
+  // updateCourse
   updateCourse = (e) => {
     this.setState({
       current: e.target.value,
     });
   };
-
+  // addCourse
   addCourse = (e) => {
     e.preventDefault();
     let current = this.state.current;
@@ -20,11 +22,25 @@ class App extends Component {
     courses.push({ name: current });
     this.setState({ courses, current: "" });
   };
-
+  // delete Course
+  deleteCourse = (index) => {
+    console.log(index);
+    let courses = this.state.courses;
+    courses.splice(index, 1);
+    this.setState({ courses });
+  };
   render() {
     const { courses } = this.state;
     const courseList = courses.map((course, index) => {
-      return <CourseList detils={course} key={index} />;
+      return (
+        <CourseList
+          detils={course}
+          key={index}
+          index={index}
+          update={this.handleChange}
+          deleteCourse={this.deleteCourse}
+        />
+      );
     });
 
     return (
