@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from "react";
 
 class CourseList extends Component {
+  state = {
+    isEdit: false,
+  };
+
   renderCourses = () => {
     return (
       <li>
@@ -8,10 +12,18 @@ class CourseList extends Component {
         <button onClick={() => this.props.deleteCourse(this.props.index)}>
           Delete Courses
         </button>
+        <button>Edit Courses</button>
       </li>
     );
   };
-
+  renderUpdateForm = () => {
+    return (
+      <form>
+        <input type="text" />
+        <button>Update Courses</button>
+      </form>
+    );
+  };
   render() {
     return <Fragment>{this.renderCourses()}</Fragment>;
   }
