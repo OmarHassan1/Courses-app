@@ -41,7 +41,7 @@ class CourseList extends Component {
 
   render() {
     let { isEdit } = this.state;
-    return ~(
+    return (
       <Fragment>
         {isEdit ? this.renderUpdateForm() : this.renderCourses()}
       </Fragment>
