@@ -33,7 +33,7 @@ class CourseList extends Component {
   renderUpdateForm = () => {
     return (
       <form>
-        <input type="text" />
+        <input type="text" defaultValue={this.props.detils.name} />
         <button>Update Courses</button>
       </form>
     );

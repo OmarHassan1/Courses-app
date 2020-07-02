@@ -29,6 +29,15 @@ class App extends Component {
     courses.splice(index, 1);
     this.setState({ courses });
   };
+  // editCourses
+  editCourse = (index, value) => {
+    let courses = this.state.courses;
+    let course = courses[index];
+    course["name"] = value;
+    this.state({
+      courses,
+    });
+  };
   render() {
     const { courses } = this.state;
     const courseList = courses.map((course, index) => {
@@ -39,6 +48,7 @@ class App extends Component {
           index={index}
           update={this.handleChange}
           deleteCourse={this.deleteCourse}
+          editCourse={this.editCourse}
         />
       );
     });
