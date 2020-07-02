@@ -9,12 +9,26 @@ class CourseList extends Component {
     return (
       <li>
         <span>{this.props.detils.name}</span>
+        <button
+          onClick={() => {
+            this.toggleState();
+          }}
+        >
+          Edit Courses
+        </button>
         <button onClick={() => this.props.deleteCourse(this.props.index)}>
           Delete Courses
         </button>
-        <button>Edit Courses</button>
       </li>
     );
+  };
+
+  //toggleState
+  toggleState = () => {
+    let { isEdit } = this.state;
+    this.setState({
+      isEdit: !isEdit,
+    });
   };
   renderUpdateForm = () => {
     return (
@@ -24,8 +38,14 @@ class CourseList extends Component {
       </form>
     );
   };
+
   render() {
-    return <Fragment>{this.renderCourses()}</Fragment>;
+    let { isEdit } = this.state;
+    return ~(
+      <Fragment>
+        {isEdit ? this.renderUpdateForm() : this.renderCourses()}
+      </Fragment>
+    );
   }
 }
 
