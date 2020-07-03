@@ -1,8 +1,9 @@
 :root {
-  --main-color: #e14647;
+  --primarily-color: #e14647;
   --white-color: #fff;
   --font-color: #e8e8e8;
   --button-color: #4dc55b;
+  --secondary-color: #6a6a6a;
 }
 
 * {
@@ -16,10 +17,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--main-color);
+  background: var(--primarily-color);
 }
 h1 {
-  background: var(--main-color);
+  background: var(--primarily-color);
   padding: 18px;
   color: var(--white-color);
 }
@@ -48,4 +49,33 @@ button {
   font-weight: bold;
   cursor: pointer;
   background: var(--button-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 15px 0;
+}
+
+li span {
+  display: inline-block;
+  width: 60%;
+  color: var(--secondary-color);
+}
+
+li > button:first-of-type {
+  background: var(--secondary-color);
+  color: var(--white-color);
+  margin-left: 1%;
+  width: 19%;
+}
+li > button:last-of-type {
+  background: var(--primarily-color);
+  color: var(--white-color);
+}
+
+ul > form {
+  margin: 15px 0;
 }
