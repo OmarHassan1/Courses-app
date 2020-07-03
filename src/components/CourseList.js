@@ -30,10 +30,22 @@ class CourseList extends Component {
       isEdit: !isEdit,
     });
   };
+
+  updateCourseItem = (e) => {
+    e.preventDefault();
+    this.props.editCourse(this.props.index, this.input.value);
+    this.toggleState();
+  };
   renderUpdateForm = () => {
     return (
-      <form>
-        <input type="text" defaultValue={this.props.detils.name} />
+      <form onSubmit={this.updateCourseItem}>
+        <input
+          type="text"
+          ref={(v) => {
+            this.input = v;
+          }}
+          defaultValue={this.props.detils.name}
+        />
         <button>Update Courses</button>
       </form>
     );

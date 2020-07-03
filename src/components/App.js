@@ -34,7 +34,7 @@ class App extends Component {
     let courses = this.state.courses;
     let course = courses[index];
     course["name"] = value;
-    this.state({
+    this.setState({
       courses,
     });
   };
